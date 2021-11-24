@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/classes.css">
+</head>
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+
+    <ul class="d-flex row justify-content-around no-bullets">
+        <li class="p-3 mb-5 inner-list rounded col col-xl-3 col-lg-5 col-md-5 col-sm-8 col-10 mx-3">
+           <div class="row ">
+             <div class="column mx-auto">
+                <div class="card">
+                    <h2 class="subject">Grade Received:</h2>
+                    <% if(student.assignments.assignment.length>0)
+                    {  let t=0;
+                        for(let stu of student.assignments.assignment){
+                            if(stu.assignmentId.toString() === id.toString()){ t=1;%>
+                                <h4 class="gr"><%= stu.grade %></h4>
+                                <p class="sub-teacher">Graded By : <%= tname %></p>  
+                          <% } %>
+                          <%  } %>
+                          <% if(t==0) { %><p class="gr">Not Graded</p>  <p class="sub-teacher">To be graded by : <%= tname %></p>  <% } %>
+                    <% } else {%><p class="gr">Not Graded</p> <p class="sub-teacher">To be graded by : <%= tname %></p> <% } %> 
+                </div>
+             </div>
+            </div>
+        </li>
+    </ul>
+      
+
+    <%- include('../includes/end.ejs') %>

@@ -1,0 +1,43 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/teacher-login.css">
+</head>
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+    <div class="container-fluid">
+        <div class="row signup-form">
+            <div class="col-xl-7 col-lg-7 col-md-7 signup-text">
+                <div class="signup-text-div">
+                    <h1>Making submissions easy! </h1>
+                    <h1>Sign UP</h1>
+                    <h1> To get Started</h1>
+                    <p>Already a member teacher? <a href="/teacher/login">Log In</a> </p>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-4">
+
+                <% if(errorMessage) { %>
+                    <div class="err-msg"><%= errorMessage %></div>
+                  <% } %>
+                
+                <form class="form-container" action="/teacher/signup" method="POST">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_h9rxcjpi.json"  background="transparent"  class="icon" speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="name" placeholder="Full Name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                      <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" id="cpwd" placeholder="Confirm password" name="cpswd" required>
+                      </div>
+                    <button type="submit" class="register-btn">Sign Up</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+    

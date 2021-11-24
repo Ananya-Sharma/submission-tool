@@ -1,0 +1,36 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/create-assignments.css">
+</head>
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+
+    <div class="container-fluid">
+        <div class="row">
+    
+          <div class="col-11 col-sm-8 col-md-6 col-lg-5 col-xl-3 create-assignment">
+          
+          <form class="form-container" action="/teacher/create-assignments" method="POST" enctype="multipart/form-data">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_TnPsHD.json" class="animation" background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+             
+            <div class="form-group">
+               <input type="text" class="form-control" id="name" placeholder="Assignment Name" name="name" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="description" placeholder="Description" name="description" rows="4" cols="6"></textarea>
+            </div>
+            
+            <label for="myfile" class="label-file">Upload the assignment as a single file only</label>
+            <input type="file" id="myfile" class="myFile form-control-file" name="myfile" required>
+    
+            <button type="submit" class="btn btn-primary">Create Assignment</button>
+            <input type="hidden" name="classId" value="<%= cl._id%>">
+            <input type="hidden" name="tname" value="<%= cl.teacher.name%>">
+            <input type="hidden" name="email" value="<%= cl.teacher.email%>">
+          </form>
+          </div>
+        </div>
+    </div>
+
+    <%- include('../includes/end.ejs') %>

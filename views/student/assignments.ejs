@@ -1,0 +1,56 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/assignments.css">
+</head>
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+
+    <% if (assignments.length > 0) { %>
+
+    <ul class="d-flex row justify-content-around no-bullets">
+        <% for (let a of assignments) { let k=0, id;%> 
+        <li class="p-3 mb-5 inner-list rounded col col-xl-10 col-lg-10 col-md-11 col-sm-11 col-10 mx-3">
+           <div class="row ">
+             <div class="column col col-xl-10 col-lg-10 col-md-11 col-sm-11 col-10">
+                <div class="card" id="headingOne">
+                    <h2 class="subject"><%= a.asName %></h2>
+                    <% if(a.description!="") { %>
+                    <p class="subject-branch"><%= a.description %></p>
+                    <% } else { %>
+                        <p class="subject-branch">No Description</p>
+                    <% } %>
+                </div>
+                <div class="buttons-div">
+                <button class="dwnld-btn left dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                    Download Assignment </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href='/student/download?fileId=<%= a._id%>'><%= a.fileName%></a>
+                </div>
+
+                <% for (let sta of studentAssignments) {
+                  if( sta.assignment.toString() == a._id.toString()){ k=1 ; id=sta._id;} }
+                    if(k==0 ) {%> 
+                <form action="/student/submit-assignment-form/<%= a._id%>" method="GET">
+                    <button class="submit-btn right">Submit Assignment</button>
+                </form>
+                <% } else {  %>
+                    <form action="/student/grade" method="POST">
+                        <button class="right grade">Grade </button>
+                        <input type="hidden" name="assignId" value="<%= id%>">
+                        <input type="hidden" name="name" value="<%= a.name %>">
+                    </form>
+                    <button class="enrolled-btn right">Submitted</button>
+                    <% } %>
+                </div>
+             </div>
+           </div>
+        </li>
+        <% } %>
+      </ul>
+
+      <% } else { %>
+        <h1 class="no-cl">No Assignments Found! </h1>
+        <h3 class="no-cl1">Assignment will be visible when your teacher creates one.</h3> 
+    <% } %>
+
+    <%- include('../includes/end.ejs') %>

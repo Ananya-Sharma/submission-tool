@@ -1,0 +1,103 @@
+<%- include('../includes/head.ejs') %>
+ <link rel="stylesheet" href="css/home.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+</head>
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+    <div id="owl-demo" class="owl-carousel owl-theme">
+ 
+        <div class="item">
+            <img src="../images/submit5.jpg" alt="" class="img-1"> 
+            <div class="item-body">
+                <h1 style="font-weight: 600;">Welcome to SUBMISSION TOOL</h1>
+                <p style="font-weight: 600; font-size: 18px;">Making submissions easy</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="../images/submit1.jpg" alt="" class="img-1">
+            <div class="item-body">
+                <p style="font-weight: 600; font-size: 18px;">Create assignments as a teacher and share them with your class.</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="../images/submit6.jpg" alt="" class="img-1">
+            <div class="item-body">
+                <p style="font-weight: 600; font-size: 18px;">Submit your assignments as a student easily.</p>
+            </div>
+        </div>
+       
+      </div>
+    
+      <div class="what-sub">
+    
+      <h1 class="usage">What is the submission tool?</h1>
+    
+      <section class="about container py-5">
+        <div class="row about-us-row">
+          <div class="text col-lg-6 col-md-6 col-12 w-50">
+            <p>Submission Tool is a website which aims at making the assignment/submission of work easy. Using this, the teachers can assign some work to the students and can grade 
+              their work once the students submit it. The students can enroll into a class, submit their assignments and view the grade received on each assignment. 
+              It helps the user to organize and manage all course assignments.</p>
+           </div>
+           <div class="img about-us-img col-lg-6 col-md-6 ol-12 w-50">
+             <img class="img-fluid" src="../images/what.png" style="border-radius: 2%;">
+           </div>
+    
+        </div>
+      </section>
+    
+    </div>
+    
+      <div class="services">
+    
+        <h1 class="usage1">How to use the submission tool?</h1>
+        <div class="container-fluid how-to-use">
+          <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6">
+              <h4>For Teachers</h4>
+              <ul>
+                <li>Create an account by clicking on Teacher Signup.</li>
+                <li>Sign in to your account.</li>
+                <li>Create a class.</li>
+                <li>Add an assignment for students.</li>
+                <li>Grade them on receiving the submissions.</li>
+              </ul>
+            </div>
+    
+            <div class="col-xl-6 col-lg-6 col-md-6">
+              <h4>For Students</h4>
+              <ul>
+                <li>Create an account by clicking on Student Signup.</li>
+                <li>Sign in to your account.</li>
+                <li>Join a class.</li>
+                <li>Submit an assignment, if any.</li>
+                <li>Click on "Grade" to view your received grade.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+      
+      <script>
+          $(document).ready(function() {
+     
+     $("#owl-demo").owlCarousel({
+    
+         nav : true,
+         dots : false,
+         items : 1, 
+         itemsDesktop : true,
+         itemsDesktopSmall : true,
+         itemsTablet: false,
+         itemsMobile : false,
+         loop: true,
+        autoplay: 5000,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true
+     });
+    
+    });
+      </script>

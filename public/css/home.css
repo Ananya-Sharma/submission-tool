@@ -1,0 +1,251 @@
+body{
+    font-size: 16px;
+    font-family: Poppins;
+}
+
+.navbar {
+    font-size: 18px;
+    padding: 1rem 10rem;
+    -moz-box-shadow:    inset -2px -2px 6px #000000;
+    -webkit-box-shadow: inset -2px -2px 6px #000000;
+    box-shadow:         inset -2px -2px 6px #000000;
+    background-color: #FAF9F6;
+}
+
+.submit{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.dropdown-menu{
+    font-family: Poppins;
+}
+.dropdown-item{
+    color: gray;
+}
+
+.navbar-light .navbar-brand{
+    color: rgba(0,0,0,0.7);
+}
+
+.nav-item:hover{
+    background-color:#FAF9F6;
+    border-radius: 10px;
+    font-weight: 600;
+    color:#2b6777;
+    box-shadow: 1px 3px rgba(0,0,0,0.5);
+}
+
+.navbar-light .navbar-nav .nav-link:hover,.dropdown-item:hover{
+    color:#2b6777;
+}
+
+.logout_btn{
+    color: gray;
+    background-color:#FAF9F6 ;
+    border: none;
+}
+
+.logout_btn:hover{
+    color:#2b6777;
+    border: none;
+    font-weight: 600;
+    border: none;
+}
+
+.logout_btn:focus {
+    outline: none;
+}
+
+.color-change{
+    color:#2b6777;
+}
+
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.item{
+    background:rgba(0,0,0,0.7);
+    overflow: hidden;  
+    /*background: -webkit-linear-gradient(rgba(180,180,180,0.6), rgba(0,0,0,0.6));
+    background: linear-gradient(rgba(180,180,180,0.6), rgba(0,0,0, 0.8)); */
+}
+
+.item-body{
+    position: absolute;
+    bottom: 5rem;
+    left: 0;
+    right: 0;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+
+.img-1{
+    opacity: 0.7;
+}
+
+button.owl-prev {
+    left: 10px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+button.owl-next {
+    right: 10px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+button.owl-next span, button.owl-prev span{
+    font-size: 90px;
+    color: #c5c6d0;
+    text-shadow: 1px 1px 5px #232023;
+}
+
+.owl-next:focus, .owl-prev:focus{outline: none;}
+.owl-next:hover, .owl-prev:hover{color: black !important;}
+
+.what-sub{
+    background-color: #fff;
+}
+
+.usage{
+    padding-top: 4rem;
+    padding-left: 10rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.usage1{
+    padding-top: 4rem;
+    padding-left: 10rem;
+    text-align: left;
+    font-weight: 600;
+    color: white;
+}
+
+.how-to-use{
+    text-align: left;
+    margin-top: 3rem;
+    padding-left: 10rem;
+    padding-bottom: 3rem;
+    color: white;
+}
+
+.text{
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.services{
+    background:#2b6777;
+}
+
+@media (max-width:575px) {
+    .navbar {
+        font-size: 14px;
+        padding: 0.5rem 2rem;
+    }
+    .item-body{
+        position: absolute;
+        bottom: 1rem;
+        left: 0;
+        right: 0;
+        margin-bottom: auto;
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        color: white;
+    }
+    .how-to-use h4{
+        font-size: 20px;
+    }
+    .usage,.usage1{
+        padding-left: 1rem;
+        font-size: 24px;
+    }
+    .welcome,.service{
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .submit{
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .about-us-img{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2rem;
+    }
+    .about-us-row{
+        text-align: center;
+    }
+    .how-to-use{
+        padding-left: 1rem;
+    }
+    .how-to-use ul li,.text{
+        font-size: 14px;
+    }
+    button.owl-prev,button.owl-next {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width:767px){
+    .navbar {
+        font-size: 14px;
+        padding: 1rem 5rem;
+    }
+    .usage,.usage1{
+        padding-left: 1rem;
+        text-align: center;
+        font-size: 30px;
+    }
+    .how-to-use{
+        padding-left: 1rem;
+    }
+    .about-us-img{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2rem;
+    }
+    .about-us-row{
+        text-align: center;
+    }
+    .text{
+        text-align: left;
+        display: inline-block;
+    }
+    .welcome{
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:991px){
+    .navbar {
+        font-size: 16px;
+        padding: 1rem 5rem;
+    }
+    .usage,.usage1{
+        padding-left: 2rem;
+        font-size: 30px;
+    }
+    .how-to-use{
+        padding-left: 2rem;
+    }
+}

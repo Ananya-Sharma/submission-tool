@@ -1,0 +1,70 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/assignments.css">
+</head>
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+
+    <% if (assignments.length > 0) { %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 list-students">
+     <ul class="d-flex row justify-content-around no-bullets">
+        <% for (let a of assignments) { %> 
+        <li class="p-3 mb-5 inner-list rounded col col-xl-12 col-lg-12 col-md-11 col-sm-11 col-10 mx-3">
+           <div class="row ">
+             <div class="column col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-10">
+                <div class="card" id="headingOne">
+                    <h2 class="subject"><%= a.asName %></h2>
+                    <% if(a.description!="") { %>
+                    <p class="subject-branch"><%= a.description %></p>
+                    <% } else { %>
+                        <p class="subject-branch">No Description</p>
+                    <% } %>
+                    <a href="/teacher/assignment-details?aId=<%= a._id %>" class="stretched-link"></a>
+                </div>
+                <button class="dwnld-btn left dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                    Download File </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href='/teacher/download?fileId=<%= a._id%>'><%= a.fileName%></a>
+                </div>
+                <form action="/teacher/delete-assignment" method="POST">
+                <button class="submit-btn right">Delete Assignment</button>
+                    <input type="hidden" name="assignId" value="<%= a._id%>">
+                </form>
+             </div>
+           </div>
+        </li>
+        <% } %>
+      </ul>
+
+      <% } else { %>
+        <h1 class="no-cl">No Assignments Found! </h1>
+        <h3 class="no-cl1">Go back and click on Create Assignment to create a new assignment.</h3> 
+    <% } %>
+    </div>
+
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 list-students">
+        <h2 class="list-head">List of enrolled Students</h2>
+        <div class="for-desktop-view-J">
+            <div class="row table-heading-J justify-content-center mx-0">
+                <div style="text-align: left;" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-3 p-3 mx-1">Student Name</div>
+                <div style="text-align: center;" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-3 p-3 mx-1 ">Student Roll No.</div>
+            </div>
+    
+            <% if (students.length > 0) { %>
+                <% for (let st of students) { %> 
+            <div class="row justify-content-center bg-white all-rows-J mx-0 p-0">
+                <div style="text-align: left;" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-3 p-3 mx-xl-2 features-J"><%= st.name %></div>
+                <div style="text-align: center;" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-3 p-3 mx-xl-2"><%= st.rollno %></div>
+            </div>
+            <% } } %>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+    <%- include('../includes/end.ejs') %>

@@ -1,0 +1,71 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/student-table.css">
+</head>
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+
+    <div class="container justify-content-center my-3">
+        <div style="text-align: center;" class="my-5">
+            <h2 style="font-weight: 600; color: white; ">No. of submitted assignments : <%= assignments.length %></h2>
+            <h2 style="font-weight: 600; color: white; ">List of Students</h2>
+        </div>
+    
+        <div class="for-desktop-view-J">
+            <div class="row table-heading-J justify-content-center mx-0">
+                <div style="text-align: left;" class="col-xl-2 col-lg-2 col-md-3 col-sm-2 col-2 p-3 mx-1">Student Name</div>
+                <div style="text-align: center;" class="col-xl-3 col-lg-3 col-md-2 col-sm-1 col-1 p-3 mx-1 ">Student Roll No.</div>
+                <div style="text-align: left;" class="col-xl-3 col-lg-3 col-md-2 col-sm-1 col-1 p-3 mx-1 ">Assignment</div>
+                <div style="text-align: left;" class="col-xl-2 col-lg-2 col-md-2 col-sm-1 col-1 p-3 mx-1 ">Grade</div>
+            </div>
+    
+            <% if (assignments.length > 0) { %>
+                <% for (let a of assignments) { %> 
+            <div class="row justify-content-center bg-white all-rows-J mx-0 p-0">
+                <div style="text-align: left;" class="col-xl-2 col-lg-2 col-md-3 p-3 mx-xl-2 features-J"><%= a.name %></div>
+                <div style="text-align: center;" class="col-xl-3 col-lg-3 col-md-2 p-3 mx-xl-2"><%= a.rollno %></div>
+                <div style="text-align: left;" class="col-xl-3 col-lg-3 col-md-2 p-3 mx-xl-2">
+                    <button class="dwnld-btn left dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                        Download</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href='/teacher/downloadFile?fileId=<%= a._id%>'><%= a.fileName%></a>
+                    </div>
+                </div>
+                <div style="text-align: center;" class="col-xl-3 col-lg-3 col-md-2 p-3 mx-xl-2">
+                <% for(let stu of students){
+                    if(stu.email === a.email){
+                        if(stu.assignments.assignment.length > 0){ let t=0;
+                            for( let as of stu.assignments.assignment){
+                                if(as.assignmentId.toString() === a._id.toString()){ t=1; %>
+                                <p><%= as.grade%></p>
+                       <%     } }
+                            if(t==0){ %>
+                                <form class="form-container" action="/teacher/grade" method="POST">
+                                    <div class="form-group d-flex">
+                                        <input type="text" class="form-control" id="grade" placeholder="Grade" name="grade" required>
+                                        <button type="submit" class="btn">Submit</button>
+                                        <input type="hidden" name="assignId" value="<%= a._id%>">
+                                        <input type="hidden" name="email" value="<%= a.email%>">
+                                     </div>
+                                </form>
+                        <%    }
+                        }
+                    
+                         else { %>
+                    <form class="form-container" action="/teacher/grade" method="POST">
+                        <div class="form-group d-flex">
+                            <input type="text" class="form-control" id="grade" placeholder="Grade" name="grade" required>
+                            <button type="submit" class="btn">Submit</button>
+                            <input type="hidden" name="assignId" value="<%= a._id%>">
+                            <input type="hidden" name="email" value="<%= a.email%>">
+                         </div>
+                    </form>
+               <% } %>
+                </div>
+            </div>
+            <%}  } } } %>
+    
+        </div>
+      </div>
+
+    <%- include('../includes/end.ejs') %>

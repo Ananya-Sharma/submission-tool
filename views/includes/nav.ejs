@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-md navbar-light">
+  <a class="navbar-brand active submit" href="/">SUBMISSION <span class="color-change">TOOL</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <% if(isAuthenticated&&teacher) { %>
+      <li class="<%= path === '/teacher/classes' ? 'active' : '' %> nav-item">
+        <a class="nav-link" href="/teacher/classes">Classes</a>
+      </li>
+      <li class="<%= path === '/teacher/create-class' ? 'active' : '' %> nav-item">
+        <a class="nav-link" href="/teacher/create-class">Create Class</a>
+      </li>
+      <% } %>
+      <% if(isAuthenticated&&student) { %>
+        <li class="<%= path === '/student/classes' ? 'active' : '' %> nav-item">
+          <a class="nav-link" href="/student/classes">Classes</a>
+        </li>
+        <% } %>
+      <% if(!isAuthenticated) { %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Login
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/teacher/login">Teacher</a>
+          <a class="dropdown-item" href="/student/login">Student</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Signup
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/teacher/signup">Teacher</a>
+          <a class="dropdown-item" href="/student/signup">Student</a>
+        </div>
+      </li>
+      <% } else {%>
+        <li class="nav-item">
+          <form action="/teacher/logout" method="POST" class="nav-link">
+            <button type="submit" class="logout_btn">Logout</button>
+          </form>
+        </li>
+        <% } %>
+    </ul>
+  </div>  
+</nav>

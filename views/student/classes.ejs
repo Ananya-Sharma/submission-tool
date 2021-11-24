@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/classes.css">
+</head>
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+
+    <% if (classes.length > 0) { %>
+
+    <ul class="d-flex row justify-content-around no-bullets">
+        <% for (let cl of classes) { %> 
+        <li class="p-3 mb-5 inner-list rounded col col-xl-3 col-lg-5 col-md-5 col-sm-8 col-10 mx-3">
+           <div class="row ">
+             <div class="column mx-auto">
+                <div class="card">
+                    <h2 class="subject"><%= cl.className %></h2>
+                    <p class="subject-branch"><%= cl.branch %></p>
+                    <p class="sub-teacher">Teacher : <%= cl.teacher.name %></p>
+                    <% if (cl.students.student.includes(id)) { %>
+                    <a href="/student/assignments/<%= cl._id %>" class="stretched-link"></a>
+                    <% }%>    
+                </div>
+                <% if (cl.students.student.includes(id)) { %>
+                    <p><button class="enrolled-btn">Enrolled</button></p>
+                <% } else {%>    
+                <form action="/student/classes/enroll" method="POST">
+                <p><button class="enroll-btn">Enroll Now</button></p>
+                <input type="hidden" name="classId" value="<%= cl._id%>">
+                </form>
+                <% } %>
+             </div>
+            </div>
+        </li>
+        <% } %>
+    </ul>
+      
+    <% } else { %>
+        <h1 class="no-cl">No Classes Found! </h1>
+    <% } %>
+
+    <%- include('../includes/end.ejs') %>

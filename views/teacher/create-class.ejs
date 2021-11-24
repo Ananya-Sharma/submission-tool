@@ -1,0 +1,37 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/create-assignments.css">
+</head>
+<body>
+
+    <%- include('../includes/nav.ejs') %>
+    <div class="container-fluid">
+        <div class="row">
+    
+          <div class="col-11 col-sm-8 col-md-6 col-lg-5 col-xl-3 create-assignment">
+          
+          <form class="form-container" action="/teacher/create-class" method="POST">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_bjyiojos.json"  class="animation" background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+             
+            <div class="form-group">
+               <input type="text" class="form-control" id="name" placeholder="Class Name" name="name" required>
+            </div>
+            <div class="form-group">
+                <select id="branch" name="branch" required>
+                    <option value="">Branch</option>
+                    <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Chemical Engineering">Chemical Engineering</option>
+                </select>
+              </div>
+    
+            <button type="submit" class="btn btn-primary">Create Class</button>
+          </form>
+          </div>
+        </div>
+    </div>
+
+<%- include('../includes/end.ejs') %>

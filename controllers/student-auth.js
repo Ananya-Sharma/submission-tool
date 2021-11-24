@@ -1,6 +1,8 @@
 const Student = require('../models/student');
 const bcrypt = require('bcryptjs');
 
+// Displays the login form for student
+
 exports.getLogin = (req, res, next) => {
     let message = req.flash('error');
     if(message.length>0){
@@ -20,6 +22,8 @@ exports.getLogin = (req, res, next) => {
       });
 };
 
+// Displays the signup form for student
+
 exports.getSignup = (req, res, next) => {
     let message = req.flash('error');
     if(message.length>0){
@@ -38,6 +42,8 @@ exports.getSignup = (req, res, next) => {
       errorMessage : message
     });
 };
+
+// Student Signup function
 
 exports.postSignup = async(req, res, next) => {
     const name = req.body.name;
@@ -89,6 +95,8 @@ exports.postSignup = async(req, res, next) => {
     }
 };
 
+// Student Login function
+
 exports.postLogin = async(req, res, next) => {
     const email = req.body.email;
     const password = req.body.pswd;
@@ -125,6 +133,8 @@ exports.postLogin = async(req, res, next) => {
         console.log(err);
     }
 };
+
+// Student Logout function
 
 exports.postLogout = (req , res , next) => {
     try

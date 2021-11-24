@@ -50,6 +50,8 @@ router.get('/downloadFile',isAuth,controller.downloadStudentFiles);
 router.post('/grade', isAuth, controller.postGrade);
 
 
+// To store the assignments given by teacher in the server
+
 router.post('/create-assignments', isAuth, upload.single('myfile'), async(req,res,next)=>{
     const classId = req.body.classId;
     const asName = req.body.name;

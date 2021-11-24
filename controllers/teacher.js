@@ -6,6 +6,8 @@ const Class = require('../models/class');
 const Assignment = require('../models/assignment');
 const StudentAssignment = require('../models/student-assignment');
 
+//Displays the from to create a class
+
 exports.getCreateClass = (req, res, next) => {
       res.render('./teacher/create-class', {
         pageTitle: 'Create class',
@@ -14,6 +16,8 @@ exports.getCreateClass = (req, res, next) => {
         productCSS: true,
       });
 };
+
+// Function to create a class
 
 exports.postClass = async(req,res,next)=>{
     const className = req.body.name;
@@ -36,6 +40,8 @@ exports.postClass = async(req,res,next)=>{
     }
 };
 
+// Function to display all the classes created by the logged in teacher
+
 exports.getAllClasses = async(req,res,next)=>{
     try{
         const classes = await Class.find({teacher:req.teacher._id}).populate('teacher');
@@ -53,6 +59,8 @@ exports.getAllClasses = async(req,res,next)=>{
     }
 };
 
+// Function to delete a class (Can be done only by teacher who created the class)
+
 exports.deleteClass = async(req,res,next)=>{
     const classId = req.body.classId;
     try{
@@ -65,6 +73,8 @@ exports.deleteClass = async(req,res,next)=>{
     }
 }
 
+// Function to delete the assignment
+
 exports.deleteAssignment = async(req,res,next)=>{
     const assignId = req.body.assignId;
     try{
@@ -76,6 +86,8 @@ exports.deleteAssignment = async(req,res,next)=>{
         console.log(err);
     }
 }
+
+// Displays the form to create an assignment
 
 exports.getCreateAssignment = async(req,res,next)=>{
     const classId = req.params.classId;
@@ -94,6 +106,8 @@ exports.getCreateAssignment = async(req,res,next)=>{
         console.log(err);
     }
 };
+
+// Displays the assignments created by teacher for a class as well as the list of students enrolled
 
 exports.getAssignments = async(req,res,next)=>{
     let classId = req.params.classId;
@@ -119,6 +133,8 @@ exports.getAssignments = async(req,res,next)=>{
     }
 }
 
+// Displays the page which shows the number of students who have submitted the assignments, along with their name, roll no, assignment, and grade(given by the teacher)
+
 exports.getAssignmentDetails = async(req,res,next)=>{
     try{
         const students = await Student.find();
@@ -138,6 +154,8 @@ exports.getAssignmentDetails = async(req,res,next)=>{
     }
 }
 
+// Function to download assignment given by teacher to students
+
 exports.downloadFiles = (req, res) =>{
     Assignment.find({_id:req.query.fileId})
       .then((docs)=>{
@@ -152,6 +170,8 @@ exports.downloadFiles = (req, res) =>{
       })
 }
 
+// Function to download assignments submitted by students
+
 exports.downloadStudentFiles = (req, res) =>{
     StudentAssignment.find({_id:req.query.fileId})
       .then((docs)=>{
@@ -165,6 +185,8 @@ exports.downloadStudentFiles = (req, res) =>{
           console.log(err);
       })
 }
+
+// Function to give the grade for an assignment to student
 
 exports.postGrade = async(req,res,next) =>{
     const grade = req.body.grade;

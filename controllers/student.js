@@ -6,6 +6,8 @@ const Class = require('../models/class');
 const Assignment = require('../models/assignment');
 const StudentAssignment = require('../models/student-assignment');
 
+//Function to display all the classes to student
+
 exports.getAllClasses = async(req,res,next)=>{
     try{
         const classes = await Class.find().populate('teacher');
@@ -24,6 +26,8 @@ exports.getAllClasses = async(req,res,next)=>{
     }
 }
 
+//Function to enroll in a class
+
 exports.enroll = async(req,res,next)=>{
     const classId = req.body.classId;
     try{
@@ -38,6 +42,8 @@ exports.enroll = async(req,res,next)=>{
         console.log(err);
     }
 }
+
+// Function to display all the assignments in a particular class
 
 exports.getAssignments = async(req,res,next)=>{
     let classId = req.params.classId;
@@ -59,6 +65,8 @@ exports.getAssignments = async(req,res,next)=>{
     }
 }
 
+// Displays the form to submit the assignment
+
 exports.getSubmitForm = async(req,res,next)=>{
     const assignId = req.params.assignId;
     try{
@@ -78,6 +86,8 @@ exports.getSubmitForm = async(req,res,next)=>{
         console.log(err);
     }
 }
+
+// Displays the page which shows the grade received by student on a particular assignment
 
 exports.getGrade = async(req,res,next)=>{
     const assignId = req.body.assignId;
@@ -99,6 +109,8 @@ exports.getGrade = async(req,res,next)=>{
         console.log(err);
     }
 }
+
+// Function to download the assignments
 
 exports.downloadFiles = (req, res) =>{
     Assignment.find({_id:req.query.fileId})

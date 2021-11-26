@@ -15,7 +15,7 @@ https://getbootstrap.com/docs/5.0/getting-started/introduction/
 Learn more about them here: https://nodejs.org/api/all.html,
 https://docs.mongodb.com/
 
-- View the website here : https://submission-tool.herokuapp.com/
+- View the website here : https://submissiontool.herokuapp.com/
 
 # Building the Code
 

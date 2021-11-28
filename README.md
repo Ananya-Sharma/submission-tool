@@ -15,7 +15,7 @@ https://getbootstrap.com/docs/5.0/getting-started/introduction/
 Learn more about them here: https://nodejs.org/api/all.html,
 https://docs.mongodb.com/
 
-- View the website here : https://submissiontool.herokuapp.com/
+- View the website here : https://submission--tool.herokuapp.com/
 
 - To know about my journey, you can read "My journey.docx" file.
 
@@ -33,4 +33,4 @@ https://docs.mongodb.com/
   ### `npm start` 
 
 - Runs the app in the development mode.\
-  Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  Open [http://localhost:5000](http://localhost:5000) to view it in the browser.

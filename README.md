@@ -8,12 +8,12 @@ Website to make the submission and assignment of school/college work easy.
 
 - Frontend is implemented using HTML, CSS and Bootstrap.
 Learn more about it here: https://developer.mozilla.org/en-US/docs/Web/HTML,
-https://developer.mozilla.org/en-US/docs/Web/CSS,
-https://getbootstrap.com/docs/5.0/getting-started/introduction/
+  https://developer.mozilla.org/en-US/docs/Web/CSS,
+  https://getbootstrap.com/docs/5.0/getting-started/introduction/
 
 - Backend is implemented using Node.js and MongoDB.
 Learn more about them here: https://nodejs.org/api/all.html,
-https://docs.mongodb.com/
+  https://docs.mongodb.com/
 
 - View the website here : https://submission--tool.herokuapp.com/
 

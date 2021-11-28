@@ -17,6 +17,8 @@ https://docs.mongodb.com/
 
 - View the website here : https://submissiontool.herokuapp.com/
 
+- To know about my journey, you can read "My journey.docx" file.
+
 # Building the Code
 
 - Clone the repository using HTTP: `git clone https://github.com/Ananya-Sharma/submission-tool.git`
